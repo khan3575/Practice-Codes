@@ -1,22 +1,43 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
+
+class Graph {
+public:
+    map<int, bool> visited;
+    map<int, list<int> > adj;
+    void addEdge(int v, int w);
+    void DFS(int v);
+};
+
+void Graph::addEdge(int v, int w)
 {
-    int n,i,j;
-    cout<<"hellooooo";
-    cin>>n;
-    int mat[n][n]={0};
-    int k,l;
-1    while(n--)
-    {
-        cin>>k>>l;
-        mat[k][l]=1;
-        mat[l][k]= 1;
-    }
-    for(i=0; i<n; i++)
-    {
-        for(j=0; j<n; j++)
-        cout<<mat[i][j]<<" ";
-        cout<<endl;
-    }
+    adj[v].push_back(w); // Add w to v’s list.
+}
+
+void Graph::DFS(int v)
+{
+    visited[v] = true;
+    cout << v << " ";
+    list<int>::iterator i;
+    for (i = adj[v].begin(); i != adj[v].end(); ++i)
+        if (!visited[*i])
+            DFS(*i);
+}
+int main()
+{    // Create a graph given in the above diagram
+    Graph g;
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
+
+    cout << "Following is Depth First Traversal"
+            " (starting from vertex 2) \n";
+
+    // Function call
+    g.DFS(2);
+
+    return 0;
 }
