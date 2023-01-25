@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=100;
-int deg[N];
+vector<int>  deg[N];
 void prime(int x)
 {
     for(int i=2; i<=x; i++)
@@ -12,7 +12,7 @@ void prime(int x)
             co++;
             x/=i;
         }
-        deg[i]+=co;
+        deg[i].push_back(co);
     }
 }
 
