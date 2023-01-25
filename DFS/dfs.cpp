@@ -1,36 +1,55 @@
 #include<bits/stdc++.h>
+#include<vector>
 using namespace std;
-vector<int> v[1000];
-bool vis[1000];
-void DFS(int vertex)
+const int N=200005;
+vector< int >v[N];
+int deg[N];
+vector<int> comp;
+bool vis[N];
+void dfs(int ver)
 {
-    vis[vertex]= true;
-    for(int child : v[vertex])
-    
+    vis[ver]=true;
+    comp.push_back(ver);
+
+    for(auto to : v[ver] )
     {
-        if(!vis[vertex])
+        if(!vis[to])
         {
-            cout<<"par"<<vertex<<" child"<<child<<endl;
-            vis[vertex]= true;
+            dfs(to);
         }
     }
-
-
 }
 int main()
 {
     int n,m;
     cin>>n>>m;
-    for(int i=0; i<m; i++)
+    while(m--)
     {
         int v1,v2;
         cin>>v1>>v2;
+        --v1,--v2;
         v[v1].push_back(v2);
         v[v2].push_back(v1);
+        ++deg[v1], ++deg[v2];
     }
+    int ans=0;
+    for(int i=0; i<n; i++)
+    {
+        if(!vis[i])
+        {
+            comp.clear();
+            dfs(i);
+            bool s= true;
+            for(auto it: comp)
+            {
+                s &= (deg[it]==2);
+            }
+            if(s)
+            {
+                ans++;
+            }
+        }
+    }
+    cout<<ans<<endl;
 
-    for(int i=0; i<m; i++)
-{
-    DFS(i);
-}
 }
