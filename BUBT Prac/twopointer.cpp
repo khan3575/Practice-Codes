@@ -23,5 +23,11 @@ int main()
             //cout<<res<< " ";
         }
     }
+    if(res==0)
+    {
+        cout<<-1<<endl;
+    }
+    else
     cout<<res<<endl;
+    return 0;
 }
