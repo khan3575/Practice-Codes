@@ -9,15 +9,21 @@ int main()
 	int n;
 	cin>>n;
 	int arr[n];
-	for(int i=0; i<n;i++)
+	for(int i=0; i<n; i++)
 	{
 		cin>>arr[i];
 	}
-	sort(arr, arr+n);
-	for(int i=0; i<n ; i++)
+	int x;
+	cin>>x;
+	int it=-1;
+	for(int i=0; i<n; i++)
 	{
-		cout<< arr[i]<<" ";
+		if(arr[i]==x)
+		{
+			it= i;
+			break;
+		}
 	}
-	cout<<endl;
+	cout<< it<<endl;
 	return 0;
 }

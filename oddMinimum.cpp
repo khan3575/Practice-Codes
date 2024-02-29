@@ -8,16 +8,15 @@ int main()
 	cout.tie(NULL);
 	int n;
 	cin>>n;
-	int arr[n];
+	map<int,int>mp;
+	int x;
 	for(int i=0; i<n;i++)
 	{
-		cin>>arr[i];
+		cin>>x;
+		mp[x]++;
 	}
-	sort(arr, arr+n);
-	for(int i=0; i<n ; i++)
-	{
-		cout<< arr[i]<<" ";
-	}
-	cout<<endl;
+	auto it= mp.begin();
+	cout <<mp[*it.second]<<endl;
+
 	return 0;
 }
