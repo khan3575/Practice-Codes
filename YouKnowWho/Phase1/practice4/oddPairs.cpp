@@ -5,8 +5,18 @@ using namespace std;
 const int mod = 1e9+7;
 int main()
 {
-  fastIO;
-  cout<<__lg(15);
-  
-  return 0;
+	fastIO;
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		ll a,b;
+		cin>>a>>b;
+		ll sum=0;
+		sum+= ((a+1)/2)*((b+1)/2);
+		sum+= (a/2)*(b/2);
+		cout<<sum<<'\n';
+	}
+	
+	return 0;
 }

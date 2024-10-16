@@ -5,8 +5,15 @@ using namespace std;
 const int mod = 1e9+7;
 int main()
 {
-  fastIO;
-  cout<<__lg(15);
-  
-  return 0;
+	fastIO;
+	ll n,k;
+	cin>>n>>k;
+	int dif=k/n;
+	if(k%n)
+	{
+		dif++;
+	}
+	cout<<dif<<endl;
+	
+	return 0;
 }

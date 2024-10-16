@@ -5,8 +5,20 @@ using namespace std;
 const int mod = 1e9+7;
 int main()
 {
-  fastIO;
-  cout<<__lg(15);
-  
-  return 0;
+	fastIO;
+	int n,k;
+	cin>>n>>k;
+	int cnt=0;
+	int x;
+	for(int i=0; i<n;i++)
+	{
+		cin>>x;
+		if(x%k==0)
+		{
+			cnt++;
+		}
+	}
+	cout<<cnt<<'\n';
+	
+	return 0;
 }

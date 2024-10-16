@@ -5,8 +5,16 @@ using namespace std;
 const int mod = 1e9+7;
 int main()
 {
-  fastIO;
-  cout<<__lg(15);
-  
-  return 0;
+	fastIO;
+	ll x,y;
+	cin>>x>>y;
+	ll j=1;
+	int cnt=0;
+	for(ll i=x; i<=y; i*=2)
+	{
+		cnt++;
+		//cout<<i<<endl;
+	}
+	cout<<cnt<<endl;
+	return 0;
 }
