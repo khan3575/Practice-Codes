@@ -8,20 +8,23 @@ int main()
 	fastIO;
 	int t;
 	cin>>t;
+	vector<int>books;
 	while(t--)
 	{
-		int n;
-		cin>>n;
-		int arr[n];
-		int mx=-1,mn=INT_MAX;
-
-		for(int i=0; i<n; i++)
+		int op, book;
+		cin>>op;
+		if(op==1)
 		{
-			cin>>arr[i];
-			mx= max(mx,arr[i]);
-			mn= min(mn, arr[i]);
+			cin>>book;
+			books.push_back(book);
 		}
-		cout<< (mx-mn)*(n-1)<<'\n';
+		else if(op==2)
+		{
+			books.pop_back();
+		}
+		else{
+			cout<<books.back()<<'\n';
+		}
 	}
 	
 	return 0;

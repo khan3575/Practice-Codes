@@ -10,18 +10,26 @@ int main()
 	cin>>t;
 	while(t--)
 	{
-		int n;
-		cin>>n;
-		int arr[n];
-		int mx=-1,mn=INT_MAX;
-
-		for(int i=0; i<n; i++)
+		ll a,b;
+		cin>>a>>b;
+		if(a>=b)
 		{
-			cin>>arr[i];
-			mx= max(mx,arr[i]);
-			mn= min(mn, arr[i]);
+			cout<<a<<'\n';
 		}
-		cout<< (mx-mn)*(n-1)<<'\n';
+		else{
+			ll dif= b-a;
+			a-=dif;
+			b-= (2*dif);
+
+			if(a<=b)
+			{
+				cout<< max(0ll,a)<<'\n';
+			}else{
+				cout<<a<<'\n';
+			}
+
+
+		}
 	}
 	
 	return 0;
