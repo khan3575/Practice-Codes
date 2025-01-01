@@ -6,36 +6,48 @@ const int mod = 1e9+7;
 int main()
 {
 	fastIO;
-	int n;
+	ll n;
 	cin>>n;
-	int number_of_odd= (n+1)/2;
-	ll sum=  n*(n+1)/2;
-	ll half= sum/2;
-	vector<int>v(n);
-	if(sum%2!=0)
+	ll sum= n*(n+1)/2;
+	//cout<<sum<<endl;
+	if(sum%2==1)
 	{
 		cout<<"NO\n";
-		return 0;
 	}
-
-	for(int i=1; i<=n;i++)
-	{
-		v[i-1]=i;
+	else{
+		cout<<"YES\n";
+		ll ter= sum>>1;
+		ll res=0;
+		vector<int>a,b;
+		for(int i=n; i>0; i--)
+		{
+			if(res+i==ter)
+			{
+				res+=i;
+				a.push_back(i);
+			}
+			else if(res+i>ter)
+			{
+				b.push_back(i);
+			}
+			else{
+				res+=i;
+				a.push_back(i);
+			}
+		}
+		cout<<a.size()<<endl;
+		for(auto it: a)
+		{
+			cout<<it<<" ";
+		}
+		cout<<endl;
+		cout<<b.size()<<endl;
+		for(auto it:b)
+		{
+			cout<<it<<" ";
+		}
+		cout<<endl;
 	}
-	int ter=half;
-	set<int>a,b;
-	int sum=0;
-	int i=n;
-	while(sum+i<half)
-	{
-		sum+=i;
-		a.insert(i);
-		i--;
-	}
-	if(sum!=half)
-	{
-
-	}
-
+	
 	return 0;
 }
